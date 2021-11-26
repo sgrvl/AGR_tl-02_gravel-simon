@@ -1,0 +1,251 @@
+$noir: #0d0d0d;
+
+body {
+	font-family: 'Inter', sans-serif;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+// https://css-tricks.com/how-to-create-a-shrinking-header-on-scroll-without-javascript/
+// Truc pour la shrinking header trouvé ici.
+
+header {
+	background-color: $noir;
+	height: calc(38px + 5rem);
+	display: flex;
+	align-items: center;
+	position: sticky;
+	top: -50px;
+	z-index: 999;
+	transition: 0.5s;
+
+	& > div {
+		background-color: $noir;
+		height: calc(38px + 2rem);
+		position: sticky;
+		top: 0;
+
+		.row {
+			width: 100%;
+			margin: 0;
+
+			.col-1 {
+				padding: 0;
+			}
+		}
+	}
+}
+
+.offcanvas-body ul {
+	list-style: none;
+	padding: 0;
+}
+
+.itemPanier {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	border-bottom: 2px solid rgba($noir, 0.05);
+
+	img {
+		max-height: 100px;
+		width: auto;
+	}
+
+	p {
+		font-weight: bold;
+		text-align: end;
+	}
+}
+
+.text-end h2:after {
+	content: ' $';
+}
+
+main {
+	margin-top: 3em;
+}
+
+.button_svg {
+	background-color: transparent;
+	border: 0;
+
+	&:hover path {
+		fill: crimson;
+	}
+}
+
+.card {
+	border: none;
+	cursor: pointer;
+
+	.card-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	img {
+		max-width: 200px;
+		margin: 0 auto;
+	}
+
+	&-text {
+		font-size: 2em;
+		font-weight: 700;
+	}
+
+	.d-flex {
+		flex-wrap: wrap;
+		justify-content: center;
+
+		button {
+			margin: 0.5rem;
+		}
+	}
+}
+.card_list.card {
+	flex-direction: row;
+
+	img {
+		max-width: 100px;
+		max-height: 250px;
+		height: auto;
+	}
+
+	.card-body {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding: 0;
+		margin-left: 2em;
+
+		@media (max-width: 600px) {
+			display: flex;
+			flex-direction: column;
+
+			h2 {
+				align-self: start !important;
+			}
+
+			.d-flex {
+				align-self: start !important;
+				justify-content: start !important;
+
+				button {
+					margin-left: 0;
+				}
+			}
+		}
+
+		h2 {
+			grid-area: 1 / 1 / 2 / 2;
+			align-self: end;
+		}
+
+		p {
+			grid-area: 2 / 1 / 3 / 2;
+			align-self: start;
+		}
+
+		.d-flex {
+			grid-area: 1 / 2 / 3 / 3;
+			justify-content: end;
+			justify-self: end;
+		}
+	}
+}
+
+.btn_custom {
+	width: 150px;
+	border-radius: 4px;
+	border: 2px solid $noir;
+	font-weight: 700;
+	padding: 0.5em 1em;
+
+	&-primary {
+		background-color: $noir;
+		color: white;
+		font-weight: bold;
+
+		&:hover {
+			background-color: crimson;
+			border: 2px solid crimson;
+		}
+	}
+
+	&-secondary {
+		background-color: transparent;
+
+		&:hover {
+			border: 2px solid crimson;
+			color: crimson;
+		}
+	}
+
+	&-ajouter {
+		background-color: crimson;
+		border-color: crimson;
+		color: white;
+
+		&:hover {
+			background-color: transparent;
+			border-color: $noir;
+			color: $noir;
+		}
+	}
+
+	&-clear {
+		background-color: transparent;
+
+		&:hover {
+			border-color: crimson;
+			color: crimson;
+		}
+	}
+
+	&-delete {
+		background-color: transparent;
+		border: none;
+		text-decoration: underline;
+		font-size: 0.75em;
+		text-align: end;
+		width: 100%;
+
+		&:hover {
+			color: crimson;
+		}
+	}
+}
+
+.badge {
+	transform: translate(-15px, 0px) !important;
+	background-color: crimson;
+}
+
+.secondary-hover {
+	border: 2px solid crimson;
+	outline: crimson;
+	color: crimson;
+}
+
+footer {
+	background-color: $noir;
+	color: white;
+
+	p {
+		font-size: 1em;
+		max-width: 60ch;
+		text-align: center;
+	}
+
+	a {
+		color: crimson;
+
+		&:hover {
+			color: white;
+		}
+	}
+}
